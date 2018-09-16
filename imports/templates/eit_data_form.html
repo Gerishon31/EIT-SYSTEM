@@ -1,0 +1,71 @@
+<template name="Eit_data_form">
+  <form id="eit_data_form">
+    <div class="form-group">
+       <label for="first_name">First Name</label>
+    <input type="text" class="form-control" name="first_name" placeholder="First Name">
+    </div>
+
+    <div class="form-group">
+        <label for="last_name">Last Name</label>
+        <input type="text" name="last_name" class="form-control" placeholder="Last Name" required/>
+    </div>
+    
+    <br/>
+    <label for="date_of_birth">Date of Birth</label>
+    <br/>
+    <input type="date" name="date_of_birth" class="form-control" required/>
+    <br/>
+    <label for="gender">Gender</label>
+    
+    <br/>
+   
+    <label class="radio-inline">
+        <input type="radio" name="gender" value="female" required/>
+        <span>female</span>
+      </label><br>
+      <label class="radio-inline">
+        <input type="radio" name="gender" value="male" required/>
+        <span>Male</span>
+      </label>
+      <br>
+      <br>
+    
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Country
+          <select name="country" required>
+              {{#each countries}}
+                {{#if default}}
+                  <option value="{{name}}" selected="true">{{name}}</option>
+                {{else}}
+                  <option value="{{name}}">{{name}}</option>
+                {{/if}}
+              {{/each}}
+            </select>
+        </button>
+      </div>
+    <br/>
+    <br/>
+
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Cohort Year
+          <select name="cohort" required>
+              {{ #each cohorts }}
+              {{ #if current}}
+              <option value="{{year}}" selected="true">{{year}}</option>
+              {{ else }}
+              <option value="{{year}}">{{year}}</option>
+              {{ /if }}
+              {{ /each }}
+            </select>
+        </button>
+
+    </div>
+
+    <br/>
+    <br/>
+    
+    <button class="btn btn-success">Submit</button>
+  </form>
+</template>
