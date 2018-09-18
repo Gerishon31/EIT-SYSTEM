@@ -48,7 +48,9 @@ Template.Eit_data_form.events({
       date_of_birth: form.date_of_birth.value,
       country: form.country.value,
       gender: form.gender.value,
-      cohort: form.cohort.value
+      cohort: form.cohort.value,
+      owner: Meteor.userId(),
+      username: Meteor.user().username,
     };
     var id = form.id.value;
     if(id){

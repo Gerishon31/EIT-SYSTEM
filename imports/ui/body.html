@@ -2,6 +2,7 @@
   <title>EIT System</title>
 </head>
 <body>
+
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <h1 style="color:greenyellow;  text-align: center;">EIT Registration System</h1>
       </nav>
@@ -35,7 +36,7 @@
               <img src="https://res.cloudinary.com/hackit-africa/image/upload/v1537141730/mest.jpg" alt="Minc" style="width:100%;">
               <div class="carousel-caption">
                 <h3 style="color:peru">MEST</h3>
-                <p style="color:peru">MEST Incubator</p>
+                <p style="color:peru">MEST Campus</p>
               </div>
             </div>
           
@@ -43,6 +44,7 @@
               <img src="https://res.cloudinary.com/shaun31/image/upload/c_scale,h_420,q_100,w_800/v1537228055/MEST/minc.jpg" alt="MEST" style="width:100%;">
               <div class="carousel-caption">
                 <h3 style="color:palegreens">MINC</h3>
+                <p style="color:paleturquoise">MEST Incubator</p>
               </div>
             </div>
           </div>
@@ -60,7 +62,11 @@
         <br>
         <br>
         <br>
-      {{> Eit_data_form}}
+
+        {{> loginButtons}}
+        {{#if currentUser}}
+          {{> Eit_data_form}}
+        {{/if}}
       <hr/>
       <div style=" font-size: 18px; background-color: aqua">
         <button id="deleteEit" style="float:right;" class="btn btn-danger">Delete</button>
@@ -81,6 +87,7 @@
             <tr>
               <td>
                 <input type="checkbox" class="delete-checkbox" value="{{_id}}"/>
+                <span class="text"><strong>{{username}}</strong> - {{text}}</span>
               </td>
               <td> {{ first_name }}</td>
               <td>{{last_name}}</td>
